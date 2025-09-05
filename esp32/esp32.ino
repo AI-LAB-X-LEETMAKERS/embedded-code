@@ -1,10 +1,13 @@
+#define BAUD 19200
 String command = "";
 
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(19200);
+  Serial.begin(BAUD);
   delay(500);
+  // setup motor drivers
+  // calibrate filter motor to the init position
   Serial.println("Serial is ready");
 }
 
@@ -14,7 +17,9 @@ void loop() {
   {
     command = Serial.readString();
     command.trim();
-    Serial.println(command);
+
+    if (command == "1")
+      Serial.print(command);
   }
   delay(10);
 }
