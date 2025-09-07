@@ -9,17 +9,21 @@ void setup() {
   // setup motor drivers
   // calibrate filter motor to the init position
   Serial.println("Serial is ready");
+  pinMode(2, OUTPUT);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if (Serial.available())
+  if (Serial.available() > 0)
   {
     command = Serial.readString();
     command.trim();
 
     if (command == "1")
-      Serial.print(command);
+      digitalWrite(2, HIGH);
+   else if (command == "2")
+      digitalWrite(2, LOW);
   }
-  delay(10);
+  command = "";
+  delay(100);
 }
