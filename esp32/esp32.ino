@@ -23,6 +23,8 @@ void loop() {
       digitalWrite(2, HIGH);
    else if (command == "2")
       digitalWrite(2, LOW);
+   else if (command == "3")
+    digitalWrite(2, LOW);
   }
   command = "";
   delay(100);
